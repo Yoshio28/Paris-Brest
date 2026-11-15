@@ -8,7 +8,7 @@
     var portrait = window.matchMedia('(max-aspect-ratio: 4/5)').matches;
     if (portrait) video.poster = video.dataset.posterPortrait;
     var add = function (src, type) { var s = document.createElement('source'); s.src = src; s.type = type; video.appendChild(s); };
-    if (portrait) add(video.dataset.srcPortrait, 'video/mp4');
+    if (portrait) { add(video.dataset.srcPortraitWebm, 'video/webm'); add(video.dataset.srcPortrait, 'video/mp4'); }
     else { add(video.dataset.srcLandscapeWebm, 'video/webm'); add(video.dataset.srcLandscape, 'video/mp4'); }
     video.muted = true;
     if (reduce.matches) {

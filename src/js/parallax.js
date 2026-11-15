@@ -22,7 +22,7 @@
     active.forEach(function (l) {
       var r = l.host.getBoundingClientRect();
       var delta = (r.top + r.height / 2) - vh / 2;          // 0 cuando la sección está centrada
-      if (l.host.classList.contains('hero')) delta = r.top;  // el hero parte de 0
+      if (l.host.classList.contains('hero')) delta = -window.scrollY;  // el hero parte de 0
       var y = -delta * l.speed * mobileScale;
       l.el.style.transform = 'translate3d(0,' + y.toFixed(2) + 'px,0)';
       if (l.fade) l.el.style.opacity = Math.max(0, 1 - Math.max(0, -r.top) / (r.height * 0.6)).toFixed(3);
