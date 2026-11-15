@@ -1,0 +1,15 @@
+/* Capas de parallax: solo transform/opacity → composited, sin layout. */
+[data-parallax]{will-change:transform;transform:translate3d(0,0,0)}
+.hero__media,.hero__dust,.hero__content{backface-visibility:hidden}
+.hero__dust::before{will-change:transform;animation:dustDrift 16s linear infinite}
+@keyframes dustDrift{from{transform:translate3d(0,0,0)}to{transform:translate3d(0,380px,0)}}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  [data-parallax]{transform:none!important;will-change:auto}
+  .hero__dust::before{animation:none;opacity:.5}
+  .reveal{opacity:1!important;transform:none!important;transition:none}
+  .menu__panel.is-active{animation:none}
+  .map__art animate{display:none}
+  .btn,.tab,.fab{transition:none}
+}
