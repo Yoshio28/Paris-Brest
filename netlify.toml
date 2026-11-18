@@ -1,0 +1,4 @@
+# Netlify: el sitio es estático y vive en src/ (sin paso de build).
+[build]
+  publish = "src"
+  command = ""
